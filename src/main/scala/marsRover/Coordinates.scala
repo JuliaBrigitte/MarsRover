@@ -5,7 +5,14 @@ class Coordinates(xVar: Int, yVar: Int)
   var x:Int =xVar;
   var y:Int =yVar;
 
-  val maxGrid=5
+  var maxGridX=5
+  var maxGridY=5
+
+  def setGrid(x: Int, y: Int): Unit =
+  {
+    maxGridX=x;
+    maxGridY=y
+  }
 
   def move(dx: Int, dy: Int): Unit =
   {
@@ -21,7 +28,7 @@ class Coordinates(xVar: Int, yVar: Int)
 
   def moveNorth(): Unit =
   {
-    if (maxGrid > y)
+    if (maxGridY > y)
     {
       move(0,1)
     }
@@ -29,7 +36,7 @@ class Coordinates(xVar: Int, yVar: Int)
 
   def moveEast(): Unit =
   {
-    if (maxGrid > x)
+    if (maxGridX > x)
     {
       move(1,0)
     }
