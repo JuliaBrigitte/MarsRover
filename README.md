@@ -1,87 +1,119 @@
-# Scala practice
+# Mars Rover Kata
 
-This repository contains challenges for you undertake to build on your coding and technical ability. We will be checking over your solutions, so please ensure you push to GitHub regularly.
+###🛸 👽 💚 Mars Rover - TDD Kata 💚 👽 🛸
 
-You may find these exercises challenging but they give you the opportunity to build on your growth mindset and commitment to programming and learning in general. 
+In this exercise, you will be working on the Mars Rover Kata.
 
-You can always come to us if you are having any trouble.
+##🗒️ Instructions
+👉 Please read through the instructions carefully in the Mars Rover Brief in the attached pdf file.
+👉 Please complete the kata using the programming language recommended for your programme (Scala or TypeScript - the choice is yours!).
+ ---------------------------------------------------------------------------------------------------------
+##💡 Top Tips
+Break the task down. Tech Tasks can feel overwhelming at times, but by reading the instructions carefully and breaking the task down into smaller steps, you’ll find ideas will start coming to you
+Sketch / plan out your ideas first, we recommend starting off by modelling what you might need using diagrams and working through your thinking using a pen and paper.
+Commit into your Github repository frequently and with descriptive commit messages.
+Write a descriptive README to document the key features of your solution, your assumptions, approaches and future thoughts.
+Note down future thoughts / considerations:
 
-We will be covering Scala on the Your Return to Tech course, so it's really important your problem solving skills are fresh.
+You can make the assumption that the Plateau is rectangular, but be sure to have a think about how easily your program can be extended upon in the future to support a different shaped Plateau.
+How might your Plateau support other vehicles and not just Rovers?
 
-If this is your first time encountering the Scala language then firstly 🙌 🙌 🙌 to you for working through a new language. 
+What about edge cases or unexpected "events"?
 
-Secondly, we recommend working through the [Scala tour material on their website](https://docs.scala-lang.org/tour/tour-of-scala.html) before working through the exercises.
+##Setting the Scene
+You have been asked to create a program to move rovers around the surface of Mars!
+The surface of Mars is represented by a Plateau, you can make the assumption that the Plateau is a square/rectangular grid for the purpose of
+this task.
 
-## Instructions
+Rovers navigate the Plateau so they can use their special cameras and robot arms to collect samples back to Planet Earth
+Representation of a Rover’s Position on the Plateau
 
-Ok you're ready to get started. Here we'll provide instructions on how to get setup and work through the exercises.
+The Plateau is divided into a grid. A Rover’s position is represented by x and y co-ordinates and the letters N, S, W, E to represent North,
+South, West, East (the four cardinal compass points) respectively.
 
-To complete these exercises you will need to have Java and Scala installed on your computer.
+Example
 
-### Installing Java
+0 0 N
 
-Follow the link below to download and install the **Java SE Development Kit** for your laptop. 
+This means the Rover is at the bottom-left corner facing in the North direction.
+Instructing a Rover to Move Around the Plateau
+To move a Rover around the Plateau, a string of letters is sent to a Rover.
+Here are the letters and their resultant action:
 
-**NOTE:** At the time of writing it is recommended to install a Long Term Support (LTS) version of the Java Development Kit in order to ensure compatibility with Scala. At the time of writing (12/2021) version 11 is the most compatible (with Scala) LTS version of Java.  
+Letter Action
 
-https://www.oracle.com/java/technologies/downloads/#java11
+L Spins the Rover 90 degrees Left without moving from the current coordinate point/
 
-You should be able to verify your Java installation by running this command at the Terminal (MacOS/Linux) or Command prompt (Windows)
+R Spins the Rover 90 degrees Right without moving from the current coordinate point/
 
-```
-java --version
-```
+M Moves the Rover forward by one grid point, maintaining the same
+heading (i.e. from where the Rover is facing (its orientation)).
 
-And you should see something similar to (note yours might be slightly different depending on how you installed Java)
+N.B. Assume that the square directly North from (x, y) is (x, y+1).
 
-```
-openjdk 11.0.12 2021-07-20
-OpenJDK Runtime Environment Homebrew (build 11.0.12+0)
-OpenJDK 64-Bit Server VM Homebrew (build 11.0.12+0, mixed mode)
-```
+##Inputs into the Program
 
-### Installing Scala
+First Line of Input to the Program
 
-The next step is to install Scala. 
+The first line inputted into the program represents the upper-right coordinates of the Plateau.
 
-The Scala website provides instruction on installing the Scala tooling
+5 5
 
-**NOTE:** At the time of writing (12/2021) we recommend installing Scala version 2.
+This Plateau has maximum (x, y) co-ordinates of (5, 5).
 
-https://docs.scala-lang.org/getting-started/index.html#install-scala-on-your-computer
+N.B. Assume that the lower-left coordinates is (0, 0).
+Subsequent Lines of Input into the Program - Input to Rovers
 
-You should be able to verify your Scala installation by running this command at the Terminal (MacOS/Linix) or Command prompt (Windows)
+This represents the instructions to move the rovers.
 
-```
-scala --version
-```
+Each rover receives two lines of input.
 
-And you should see something similar to (note yours might be slightly different depending on how you installed Scala)
+First Line of Input to a Rover
 
-```
-Scala code runner version 2.13.7 -- Copyright 2002-2021, LAMP/EPFL and Lightbend, Inc.
-```
+The Rover’s position is represented by two integers representing the X and Y coordinates and a letter representing where the Rover is facing (its
+orientation).
 
-**NOTE:** Installing different pieces of software often feels like a painful part of picking up a new language. If you have any problems at all please do get in touch with us 🙂
+1 2 N
 
-### Integrated Development Environment (IDE)
+Second Line of Input to a Rover
 
-There are various IDE tools you can utilise for writing Scala. 
+A string of letters representing the instructions to move the Rover around the Plateau.
+Movement Rules
 
-At Tech Returners you'll see us use the [IntelliJ tool](https://www.jetbrains.com/idea/download) for working with Scala.
+Rovers move sequentially, this means that the first Rover needs to finish moving first before the next one can move.
+Output
 
-The free community edition is more than sufficient for usage during the programme.
+For each Rover, the output represents its final position (final coordinates and where it is facing).
+Example Test Case
 
-## Getting started
+Lines of Input to the Program:
 
-Once you've got Java and Scala installed you can make a start.
+5 5
 
-Before you do, please make sure to watch the getting [started video](https://storage.googleapis.com/your-return-to-tech/pre-journey/scala_getting_started.mp4) as it walks you through instructions for getting started and the first exercise.
+1 2 N
 
-Once you have had a watch of the video you can head over to [activity 1](./docs/activity_1.md)
+LMLMLMLMM
 
+3 3 E
 
+MMRMMRMRRM
 
+Expected Output:
+
+1 3 N
+
+5 1 E
+
+##Your Solution
+
+Feel free to implement an approach that you feel comfortable with to receive input into your program e.g. feeding input values into unit tests;
+input via a console application; supplying input via a file etc.
+
+We would like you to apply Test-Driven Development (TDD) to test-drive your solution.
+We would like to see production-quality code, this means you have thought carefully about your code design and that your code is clean and
+well-tested.
+
+We’d love to see good unit test coverage and all unit tests passing.
 
 
 
