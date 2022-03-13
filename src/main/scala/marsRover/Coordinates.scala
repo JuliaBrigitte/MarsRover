@@ -26,6 +26,12 @@ class Coordinates(xVar: Int, yVar: Int)
     result
   }
 
+  def currentStatusBlankSeperator(): String=
+  {
+    var result=x.toString + " " + y.toString
+    result
+  }
+
   def moveNorth(): Unit =
   {
     if (maxGridY > y)

@@ -40,6 +40,11 @@ class MarsRover(coordinatesPar: Coordinates, directionPar: Direction)
     coordinates.currentStatus() + ',' + direction.currentStatus()
   }
 
+  def printCurrentStatus()=
+  {
+    println(coordinates.currentStatusBlankSeperator() + ' ' + direction.currentStatus())
+  }
+
   def moveTo(directionString:String)=
   {
     directionString.foreach(command =>
