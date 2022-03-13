@@ -44,6 +44,11 @@ class MarsRover(coordinatesPar: Coordinates, directionPar: Direction)
   {
     println(coordinates.currentStatusBlankSeperator() + ' ' + direction.currentStatus())
   }
+  
+  def setObstacle(x:Int, y:Int): Unit =
+  {
+    coordinates.setObstacle(x,y)
+  }
 
   def moveTo(directionString:String)=
   {

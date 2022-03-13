@@ -55,12 +55,14 @@ object marsRoverMain
     var coordinatesMarsRover1=new Coordinates(coordX1.toInt,coordY1.toInt)
     var directionMarsRover1=new Direction(direction1.charAt(0))
     var marsRover1=new MarsRover(coordinatesMarsRover1,directionMarsRover1)
+    marsRover1.setObstacle(coordX2.toInt,coordY2.toInt)
     marsRover1.moveTo(roverMovement1)
     marsRover1.printCurrentStatus()
 
     var coordinatesMarsRover2=new Coordinates(coordX2.toInt,coordY2.toInt)
     var directionMarsRover2=new Direction(direction2.charAt(0))
     var marsRover2=new MarsRover(coordinatesMarsRover2,directionMarsRover2)
+    marsRover1.setObstacle(coordX1.toInt,coordY1.toInt)
     marsRover2.moveTo(roverMovement2)
     marsRover2.printCurrentStatus()
   }

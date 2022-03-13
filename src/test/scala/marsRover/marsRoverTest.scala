@@ -123,4 +123,15 @@ var marsRover2=new MarsRover(coordinatesMarsRover2,directionMarsRover2)
 //
 //    Edge cases.
 //    End of grid: do turns but stop and do not fall of grid
+
+// Test with Obstocle
+var coordinatesMarsRover3=new Coordinates(0,0)
+  var directionMarsRover3=new Direction('E')
+  var marsRover3=new MarsRover(coordinatesMarsRover3,directionMarsRover3)
+  marsRover3.setObstacle(1,0)
+  "Obstacle at 1 0" should "stop rover at 0 0" in
+  {
+    marsRover3.moveTo("MMMMMM")
+    assert(marsRover3.currentStatus() == "0,0,E")
+  }
 }
