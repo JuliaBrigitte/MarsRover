@@ -119,10 +119,6 @@ var marsRover2=new MarsRover(coordinatesMarsRover2,directionMarsRover2)
   marsRover2.moveTo("MMRMMRMRRM")
   assert(marsRover2.currentStatus() == "5,1,E")
 }
-//    moveTo strings with 2,3,many
-//
-//    Edge cases.
-//    End of grid: do turns but stop and do not fall of grid
 
 // Test with Obstocle
 var coordinatesMarsRover3=new Coordinates(0,0)

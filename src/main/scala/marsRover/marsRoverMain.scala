@@ -10,8 +10,6 @@ object marsRoverMain
       input=scala.io.StdIn.readLine()
     }
     val Array(xGrid, yGrid) = input.split(" ").map(_.toInt)
-    println("xGrid "+ xGrid)
-    println("yGrid "+ yGrid)
 
     var inputRover1=""
     while (!inputRover1.matches("[0-9]* [0-9]* [NSEW]+"))
@@ -20,16 +18,13 @@ object marsRoverMain
       inputRover1=scala.io.StdIn.readLine()
     }
     val Array(coordX1, coordY1, direction1)=inputRover1.split(" ")
-//    println("coordX1 "+ coordX1)
-//    println("coordY1 "+ coordY1)
-//    println("direction1 "+ direction1)
+
     var roverMovement1=""
     while (!roverMovement1.matches("[LRM]+"))
     {
       println("Please enter moving pattern for first rover (e.g. LMLMLMLMM)")
       roverMovement1=scala.io.StdIn.readLine()
     }
-//    println("roverMovement1 "+ roverMovement1)
 
     var inputRover2=""
     while (!inputRover2.matches("[0-9]* [0-9]* [NSEW]+"))
@@ -38,9 +33,6 @@ object marsRoverMain
       inputRover2=scala.io.StdIn.readLine()
     }
     val Array(coordX2, coordY2, direction2)=inputRover2.split(" ")
-//    println("coordX2 "+ coordX2)
-//    println("coordY2 "+ coordY2)
-//    println("direction2 "+ direction2)
 
     var roverMovement2=""
     while (!roverMovement2.matches("[RLM]+"))
@@ -48,7 +40,6 @@ object marsRoverMain
       println("Please enter moving pattern for second rover (e.g. MMRMMRMRRM)")
       roverMovement2=scala.io.StdIn.readLine()
     }
-//    println("roverMovement2 "+ roverMovement2)
     println("---------------------------------")
     println("Result:")
 
