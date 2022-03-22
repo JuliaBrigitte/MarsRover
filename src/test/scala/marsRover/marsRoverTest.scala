@@ -7,7 +7,18 @@ class marsRoverTest extends AnyFlatSpec
 //    Test cases
 //    single turns left and right and move to test turn and move
   var direction=new Direction('N')
-
+  
+  "Direction facing north" should "turn left to W then N then W" in
+  {
+    direction.turnLeft()
+    assert(direction.currentStatus() == 'W')
+    direction.turnRight()
+    assert(direction.currentStatus() == 'N')
+    direction.turnLeft()
+    assert(direction.currentStatus() == 'W')
+    direction.turnRight()
+    assert(direction.currentStatus() == 'N')
+  }
   "Direction facing north" should "turn left to W then S then E" in
   {
     direction.turnLeft()
@@ -26,7 +37,6 @@ class marsRoverTest extends AnyFlatSpec
     direction.turnRight()
     assert(direction.currentStatus() == 'N')
   }
-
   var coordinates=new Coordinates(1,1)
 
   "Move along the grid" should "move by one and stop at edges" in
